@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atulya Sharma | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4f8cff;
+      --background: #17181c;
+      --card: #23242a;
+      --white: #fff;
+      --gray: #b8b9be;
+      --accent: #4f8cff;
+      --radius: 1.2rem;
+      --shadow: 0 6px 32px rgba(0, 0, 0, 0.22);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--background);
+      color: var(--white);
+    }
+
+    header {
+      width: 100%;
+      background: transparent;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+      font-size: 1.1rem;
+      position: relative;
+      transition: color 0.15s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--primary);
+    }
+
+    nav a.active::after {
+      content: '';
+      display: block;
+      margin: 0 auto;
+      width: 60%;
+      border-bottom: 2.5px solid var(--primary);
+      padding-top: 0.25rem;
+      border-radius: 2px;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 2rem 2rem;
+      gap: 3rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      transition: opacity 1.2s cubic-bezier(.23, 1.02, .66, .99);
+    }
+
+    .hero.visible {
+      opacity: 1;
+    }
+
+    .hero-text {
+      flex: 1 1 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1.3rem;
+      color: var(--white);
+    }
+
+    .hero-text h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      color: var(--gray);
+    }
+
+    .hero-text p {
+      color: var(--gray);
+      font-size: 1.15rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero-text .cta {
+      padding: 0.9rem 2.3rem;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: background 0.15s;
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-text .cta:hover {
+      background: #2457b4;
+    }
+
+    .hero-img {
+      flex: 1 1 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-img img {
+      width: 310px;
+      height: 310px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 8px solid var(--card);
+      box-shadow: var(--shadow);
+      background: var(--card);
+      transition: box-shadow 0.15s;
+    }
+
+    /* Sections */
+    .section {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin: 2.5rem auto;
+      padding: 3rem 2rem;
+      max-width: 800px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(.23, 1.02, .66, .99);
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 700;
+      font-size: 1.7rem;
+    }
+
+    p,
+    li {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #b8b9be;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .portfolio-list li {
+      background: #20222a;
+      padding: 0.9rem 1rem;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      transition: background 0.2s;
+      color: #e2e8f0;
+    }
+
+    .portfolio-list li:hover {
+      background: #2d334a;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      background: #232e48;
+      padding: 0.5rem 1rem;
+      border-radius: 0.6rem;
+      transition: background 0.15s, color 0.15s;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.07);
+    }
+
+    .contact-links a:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0 1rem;
+      color: #5f5f85;
+      font-size: 1rem;
+      background: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 1.8rem;
+        padding-top: 6rem;
+      }
+
+      .hero-img {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-container {
+        padding: 1rem 0.6rem;
+      }
+
+      .hero {
+        padding: 4.3rem 0.7rem 1rem 0.7rem;
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .hero-img img {
+        width: 190px;
+        height: 190px;
+        border-width: 5px;
+      }
+
+      nav a {
+        margin-left: 1rem;
+        font-size: 1rem;
+      }
+
+      .section {
+        padding: 2rem 1rem;
+        margin: 1.2rem auto;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      .hero-img img {
+        width: 130px;
+        height: 130px;
+      }
+
+      .section {
+        padding: 1.3rem 0.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">AS</a>
+      <nav>
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <span style="color: var(--primary);font-weight:600;">Hi there! I'm</span>
+        <h1>Atulya Sharma,<br>Electrical Engineer-in-Training<br>based in Calgary, Canada</h1>
+        <p>
+          I bridge the gap between technical detail and practical results—whether it’s system studies, arc flash
+          analysis, relay testing, or boots-on-the-ground field work.
+          <br><br>
+          I'm passionate about electrical safety, reliability, and never stop learning.
+        </p>
+        <a class="cta" href="#about">Learn More</a>
+      </div>
+      <div class="hero-img">
+        <img src="IMG_2345.JPG" alt="Atulya Sharma headshot" />
+        <!-- Upload your profile photo as 'profile.jpg' in Replit -->
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <h2>About Me</h2>
+      <p>
+        I’m passionate about electrical safety, system reliability, and continuous learning. My work ranges from
+        designing power system studies and coordinating protective relays to field-testing and upgrading real-world
+        industrial setups. I thrive on solving complex problems and working hands-on, whether it's drafting wiring
+        diagrams, performing arc flash studies, or optimizing project workflows. Outside of engineering, I’m into
+        fitness, Muay Thai, and exploring new tech.
+      </p>
+    </section>
+
+    <section class="section" id="portfolio">
+      <h2>Portfolio</h2>
+      <ul class="portfolio-list">
+        <li><strong>Arc Flash Study, SKM:</strong> Led a multi-site arc flash analysis project for industrial clients,
+          improving electrical safety and compliance.</li>
+        <li><strong>Relay Testing & Commissioning:</strong> Field-tested SEL and GE protection relays and breakers,
+          ensuring proper system operation and documentation.</li>
+        <li><strong>AutoCAD & One-line Design:</strong> Created and updated one-line diagrams, cable schedules, and
+          wiring schematics for multiple projects.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>Contact</h2>
+      <p>Want to collaborate, hire, or just connect?</p>
+      <div class="contact-links">
+        <a href="mailto:atulya@email.com">Email</a>
+        <a href="https://www.linkedin.com/in/atulya" target="_blank">LinkedIn</a>
+        <a href="https://github.com/atulya" target="_blank">GitHub</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Atulya Sharma. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Interactivity -->
+  <script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({behavior: 'smooth'});
+        }
+      });
+    });
+
+    // Scroll Spy: highlight nav link for visible section
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+
+    window.addEventListener('scroll', () => {
+      let fromTop = window.scrollY + 140; // header height offset
+
+      let current = sections.find(section =>
+        fromTop >= section.offsetTop &&
+        fromTop < section.offsetTop + section.offsetHeight
+      );
+
+      navLinks.forEach(link => link.classList.remove('active'));
+      if (current) {
+        let activeLink = document.querySelector('nav a[href="#' + current.id + '"]');
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+
+    // Fade-in sections on scroll
+    function revealSections() {
+      const reveals = document.querySelectorAll('.section');
+      const trigger = window.innerHeight * 0.92;
+      reveals.forEach(section => {
+        const boxTop = section.getBoundingClientRect().top;
+        if (boxTop < trigger) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealSections);
+    window.addEventListener('load', revealSections);
+
+    // Fade in hero on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        setTimeout(() => {
+          hero.classList.add('visible');
+        }, 200);
+      }
+    });
+  </script>
+</body>
+
+</html>

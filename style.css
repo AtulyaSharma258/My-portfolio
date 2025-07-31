@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atulya Sharma | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --background: #f7f9fb;
+      --white: #fff;
+      --dark: #22223b;
+      --gray: #e2e8f0;
+      --radius: 1.25rem;
+      --transition: 0.2s all;
+      --shadow: 0 6px 24px rgba(37, 99, 235, 0.08);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--background);
+      color: var(--dark);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    header {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 1rem 0;
+    }
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: -1px;
+      color: var(--primary);
+    }
+    nav a {
+      color: var(--dark);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+      transition: color var(--transition);
+      position: relative;
+    }
+    nav a:hover,
+    nav a.active {
+      color: var(--primary);
+    }
+    nav a.active::after {
+      content: '';
+      display: block;
+      margin: 0 auto;
+      width: 60%;
+      border-bottom: 2.5px solid var(--primary);
+      padding-top: 0.25rem;
+      border-radius: 2px;
+    }
+
+    main section {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin: 2.5rem auto;
+      padding: 3rem 2rem;
+      max-width: 750px;
+      transition: box-shadow var(--transition);
+    }
+    main section:hover {
+      box-shadow: 0 12px 36px rgba(37, 99, 235, 0.15);
+    }
+    h1, h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+    h2 {
+      font-size: 1.7rem;
+    }
+    p, li {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #31315e;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .portfolio-list li {
+      background: var(--gray);
+      padding: 0.9rem 1rem;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      transition: background var(--transition);
+    }
+    .portfolio-list li:hover {
+      background: #c7d2fe;
+    }
+    .contact-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .contact-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      background: #e0e7ff;
+      padding: 0.5rem 1rem;
+      border-radius: 0.6rem;
+      transition: background var(--transition), color var(--transition);
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.07);
+    }
+    .contact-links a:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 0 1rem;
+      background: none;
+      color: #5f5f85;
+      font-size: 1rem;
+    }
+    /* Responsive Design */
+    @media (max-width: 700px) {
+      main section {
+        padding: 2rem 1rem;
+        margin: 1.2rem auto;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.25rem;
+      }
+      .nav-bar {
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+      nav a {
+        margin-left: 1rem;
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 500px) {
+      .container {
+        padding: 0 0.6rem;
+      }
+      .logo {
+        font-size: 1.2rem;
+      }
+      main section {
+        padding: 1.3rem 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-bar">
+      <div class="logo">Atulya Sharma</div>
+      <nav>
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section id="home">
+      <h1>Welcome</h1>
+      <p>Hi, I’m Atulya Sharma — an Electrical Engineer-in-Training based in Calgary.</p>
+      <p>I specialize in power system studies, arc flash analysis, and protection coordination. I’ve worked on industrial and utility projects across Alberta, performing everything from relay testing and SKM/EasyPower modeling to hands-on data collection and field commissioning. I combine analytical depth with practical field experience to help keep systems safe, reliable, and efficient. Currently, I’m expanding my skills in ETAP and automation while pursuing Permanent Residency in Canada.</p>
+    </section>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I’m passionate about electrical safety, system reliability, and continuous learning. My work ranges from designing power system studies and coordinating protective relays to field-testing and upgrading real-world industrial setups. I thrive on solving complex problems and working hands-on, whether it's drafting wiring diagrams, performing arc flash studies, or optimizing project workflows. Outside of engineering, I’m into fitness, Muay Thai, and exploring new tech.</p>
+    </section>
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <ul class="portfolio-list">
+        <li><strong>Arc Flash Study, SKM:</strong> Led a multi-site arc flash analysis project for industrial clients, improving electrical safety and compliance.</li>
+        <li><strong>Relay Testing & Commissioning:</strong> Field-tested SEL and GE protection relays and breakers, ensuring proper system operation and documentation.</li>
+        <li><strong>AutoCAD & One-line Design:</strong> Created and updated one-line diagrams, cable schedules, and wiring schematics for multiple projects.</li>
+        <!-- Add more projects as you like -->
+      </ul>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Want to collaborate, hire, or just connect?</p>
+      <div class="contact-links">
+        <a href="mailto:atulya@email.com">Email</a>
+        <a href="https://www.linkedin.com/in/atulya" target="_blank">LinkedIn</a>
+        <a href="https://github.com/atulya" target="_blank">GitHub</a>
+        <!-- Add more social/profile links if needed -->
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Atulya Sharma. All rights reserved.</p>
+  </footer>
+</body>
+</html>
